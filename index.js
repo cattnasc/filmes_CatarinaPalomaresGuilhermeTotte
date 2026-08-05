@@ -74,7 +74,7 @@ app.listen(3000, () => console.log("Servidor ONLINE"))
 
 const sql = mysql2.createPool({
     host: "benserverplex.ddns.net",
-    user: "aluno_projetos",
-    password: "aluno@projeto",
+    user: "alunos",
+    password: "senhaAlunos",
     database: "alunos_filmes03MB"
 }) 
