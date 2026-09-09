@@ -12,9 +12,19 @@ async function buscarFilmes() {
                         <p><strong>Gênero:</strong> ${filme.genero}</p>
                         <p><strong>Duração:</strong> ${filme.duracao} minutos</p>
                         <p><strong>Classificação indicativa:</strong> ${filme.classificacao > 0 ? filme.classificacao + ' anos' : 'Livre'}</p>
+                        <button onclick="apagarFilme(${filme.id})">Apagar</button>
                     </div>
                 `
     })
 }
 
 buscarFilmes()
+
+async function apagarFilme(id) {
+    const respostaDeSucessoAoApagar = await fetch(`https://filmes-backend.vercel.app/delete/${id}`, { method: "DELETE" })
+    const mensagem = await respostaDeSucessoAoApagar.json()
+
+    alert(mensagem.message)
+
+    window.location.reload()
+}
